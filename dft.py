@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# original dft code
 '''
 sample for disctrete fourier transform (dft)
 

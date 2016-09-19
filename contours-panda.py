@@ -24,28 +24,33 @@ def make_image():
     img = np.zeros((500, 500), np.uint8)
     black, white = 0, 255
     for i in xrange(6):
-        dx = int((i%2)*250 - 30)
-        dy = int((i/2.)*150)
+        dx = int((i%2)*250-20)
+        dy = int((i/1.5)*170)
 
-        if i == 0:
+        """if i == 0:
             for j in xrange(11):
                 angle = (j+5)*np.pi/21
                 c, s = np.cos(angle), np.sin(angle)
                 x1, y1 = np.int32([dx+100+j*10-80*c, dy+100-90*s])
                 x2, y2 = np.int32([dx+100+j*10-30*c, dy+100-30*s])
-                cv2.line(img, (x1, y1), (x2, y2), white)
+                cv2.line(img, (x1, y1), (x2, y2), white)"""
 
-        cv2.rectangle( img, (dx+150, dy+100), (100,70), white, 1, 360, 0 )
-        cv2.ellipse( img, (dx+115, dy+70), (30,20), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+185, dy+70), (30,20), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+115, dy+70), (15,15), 0, 0, 360, white, -1 )
-        cv2.ellipse( img, (dx+185, dy+70), (15,15), 0, 0, 360, white, -1 )
-        cv2.ellipse( img, (dx+115, dy+70), (5,5), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+185, dy+70), (5,5), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+150, dy+100), (10,5), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+150, dy+150), (40,10), 0, 0, 360, black, -1 )
-        cv2.ellipse( img, (dx+27, dy+100), (20,35), 0, 0, 360, white, -1 )
-        cv2.ellipse( img, (dx+273, dy+100), (20,35), 0, 0, 360, white, -1 )
+        cv2.ellipse( img, (dx+150, dy+100), (105,110), 0, 0, 360, white, -1 ) #head
+        cv2.ellipse( img, (dx+110, dy+70), (37,25), -45, 0, 360, black, -1 )#left eye white
+        cv2.ellipse( img, (dx+190, dy+70), (37,25), 45, 0, 360, black, -1 )#right eye white
+        cv2.ellipse( img, (dx+115, dy+70), (15,15), 0, 0, 360, white, -1 )#left iris
+        cv2.ellipse( img, (dx+185, dy+70), (15,15), 0, 0, 360, white, -1 )#right iris
+        cv2.ellipse( img, (dx+115, dy+70), (5,5), 0, 0, 360, black, -1 )#left pupil
+        cv2.ellipse( img, (dx+185, dy+70), (5,5), 0, 0, 360, black, -1 )#right puil
+        cv2.ellipse( img, (dx+150, dy+130), (15,15), 0, 180, 360, black, -1 )#nose
+        cv2.ellipse( img, (dx+150, dy+150), (25,5), 0, -5, 185, black, -1 )#mouth
+        cv2.ellipse( img, (dx+52, dy+50), (30,30), 0, 0, 360, white, -1 )#left ear
+        cv2.ellipse( img, (dx+247, dy+50), (30,30), 0, 0, 360, white, -1 )#right
+        cv2.ellipse( img, (dx+52, dy+50), (28,28), 0, 105, 304, black, -1 )#left ear
+        cv2.ellipse( img, (dx+247, dy+50), (28,28), 0, 235, 433, black, -1 )#right
+        #cv2.ellipse( img, (dx+100, dy+120), (25,20), 0, 0, 360, 150, -1 )#left cheek
+        #cv2.ellipse( img, (dx+200, dy+120), (25,20), 0, 0, 360, 150, -1 )#right cheek
+
     return img
 
 if __name__ == '__main__':

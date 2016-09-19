@@ -81,7 +81,7 @@ if __name__ == "__main__":
     dft_N = cv2.getOptimalDFTSize(h)
 
     # copy A to dft_A and pad dft_A with zeros
-    dft_A = np.zeros((dft_N, dft_M, 4), dtype=np.float64)
+    dft_A = np.zeros((dft_N, dft_M, 2), dtype=np.float64)
     dft_A[:h, :w, 0] = realInput
 
     # no need to pad bottom part of dft_A with zeros because of
